@@ -15,18 +15,30 @@ function setFirstName(person, name) {
 }
 
 function setAge(person, age) {
-  newAge = {age: 29};
-  return person.newAge
+  person.age = age
 }
 
 function giveBirthday(person) {
-  return 
+  
+  if (person.age === undefined) {
+    return person.age = 1
+  } else {
+    person.age = person.age + 1
+  }
 }
 
 function marry(person1, person2) {
+  person1.married = true
+  person2.married = true
+  person1.spouseName = person2.firstName + ' ' + person2.lastName
+  person2.spouseName = person1.firstName + ' ' + person1.lastName
 }
 
 function divorce(person1, person2) {
+  person1.married = false
+  person2.married = false
+  delete person1.spouseName
+  delete person2.spouseName
 }
 
 module.exports = {
